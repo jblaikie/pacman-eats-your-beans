@@ -1,4 +1,5 @@
-public class Pacman extends Sprite
+package pacmanapp;
+public class Pacman implements Sprite
 {
     public void draw(API api)
     {}

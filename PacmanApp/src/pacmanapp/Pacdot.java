@@ -1,5 +1,6 @@
+package pacmanapp;
 public class Pacdot implements Sprite
 {
-    public void draw(API api);
-    public void update();
+    public void draw(API api){}
+    public void update(){}
 }
