@@ -47,5 +47,15 @@ public class PacmanApp extends Application implements API{
     public static void main(String[] args) {
         launch(args);
     }
+
+    @Override
+    public void drawImg(String path, int x, int y, int w, int h) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void clear() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
