@@ -37,7 +37,31 @@ public class GameEngine
         timer.stop();
 
     }
-
+    public enum KEY{UP, DOWN, LEFT, RIGHT};
+    
+    public void handleKey(KEY key){
+        switch(key){
+            case UP:
+                this.playerPacman.setDirection(0, -1); //why is it 0, -1 and not 0, 1??
+                break;
+            case DOWN:
+                this.playerPacman.setDirection(0, 1); //why not 0, -1??
+                break;
+            case LEFT:
+                this.playerPacman.setDirection(-1, 0);
+                break;
+            case RIGHT:
+                this.playerPacman.setDirection(1,0);
+                break;
+             
+        }
+    }
+    
+    public void delete (Sprite s){
+        this.arrSprites.remove(s);
+    }
+    
+    
     
 
 
