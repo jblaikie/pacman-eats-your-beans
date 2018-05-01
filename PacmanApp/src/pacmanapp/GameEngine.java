@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class GameEngine
 {
     protected Pacman playerPacman;
-    protected ArrayList arrSprites = new ArrayList();
+    protected ArrayList<Sprite> arrSprites = new ArrayList<Sprite>();
 
     public void loadMap() { //pass map path
         Pacman man1 = new Pacman(100, 100, 1, 0);
