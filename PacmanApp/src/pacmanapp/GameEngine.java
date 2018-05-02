@@ -31,6 +31,22 @@ public class GameEngine
         timer.start();
         api.clear();
         for (Sprite s : this.arrSprites) {
+            for(Sprite s2 : arrSprites)
+            {
+                if(s !=s2)
+                {
+                    if(s.getX()<=s2.getX()&&s2.getX()<=s.getX()+s.getW())
+                    {
+                        if(s.getY()<=s2.getY()&&s2.getY()<=s.getY()+s.getH())
+                        {
+                            if(s instanceof Pacman && s2 instanceof Pacdot)
+                                delete(s2);
+                            //else if(s2 instanceof Pacman && s instanceof Pacdot)
+                              //  delete(s);
+                        }
+                    }
+                }
+            }
             s.update();
             s.draw(this.api);
         }
