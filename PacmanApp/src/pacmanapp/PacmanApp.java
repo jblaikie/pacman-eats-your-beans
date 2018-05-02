@@ -17,7 +17,8 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.layout.StackPane;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 /**
@@ -31,6 +32,7 @@ public class PacmanApp extends Application implements API {
     protected Canvas canvas = new Canvas(700, 600);
     protected Group root = new Group();
     protected HashMap<String, Image> map;
+   
 
     @Override
     public void start(Stage primaryStage) {
@@ -38,14 +40,32 @@ public class PacmanApp extends Application implements API {
         ge.loadMap();
         map = new HashMap<String, Image>();
         gc = canvas.getGraphicsContext2D();
-
-       
+             
         myThread thread = new myThread();
         thread.start();
         
         root.getChildren().add(canvas);
 
         Scene scene = new Scene(root, 700, 600);
+        
+        scene.setOnKeyPressed((KeyEvent e) -> {
+            if (e.getCode() == KeyCode.UP){
+                ge.handleKey(GameEngine.KEY.UP);
+            }
+            
+            if (e.getCode() == KeyCode.DOWN){
+                ge.handleKey(GameEngine.KEY.DOWN);
+            }
+            
+            if (e.getCode() == KeyCode.RIGHT){
+                ge.handleKey(GameEngine.KEY.RIGHT);
+            }
+            
+            if (e.getCode() == KeyCode.LEFT){
+                ge.handleKey(GameEngine.KEY.LEFT);
+            }
+        });
+        
 
         primaryStage.setTitle("Pacman");
         primaryStage.setScene(scene);
