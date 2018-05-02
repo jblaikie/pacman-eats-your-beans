@@ -55,6 +55,7 @@ public class GameEngine
     }
     public enum KEY{UP, DOWN, LEFT, RIGHT};
     
+   // new EventHandler<KeyEvent>(){
     public void handleKey(KEY key){
         switch(key){
             case UP:
@@ -72,6 +73,7 @@ public class GameEngine
              
         }
     }
+//}
     
     public void delete (Sprite s){
         this.arrSprites.remove(s);

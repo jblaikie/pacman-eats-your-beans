@@ -12,11 +12,10 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -29,6 +28,8 @@ public class PacmanApp extends Application implements API {
 
     protected GraphicsContext gc;
     protected GameEngine ge;
+    protected Canvas canvas = new Canvas(700, 600);
+    protected Group root = new Group();
     protected HashMap<String, Image> map;
 
     @Override
@@ -36,22 +37,17 @@ public class PacmanApp extends Application implements API {
         ge = new GameEngine(this);
         ge.loadMap();
         map = new HashMap<String, Image>();
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
+        gc = canvas.getGraphicsContext2D();
 
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
+       
+        myThread thread = new myThread();
+        thread.start();
+        
+        root.getChildren().add(canvas);
 
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
+        Scene scene = new Scene(root, 700, 600);
 
-        Scene scene = new Scene(root, 300, 250);
-
-        primaryStage.setTitle("Hello World!");
+        primaryStage.setTitle("Pacman");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
