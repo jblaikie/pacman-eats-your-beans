@@ -5,6 +5,7 @@
  */
 package pacmanapp;
 
+import javafx.scene.paint.Color;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -29,7 +30,7 @@ public class PacmanApp extends Application implements API {
 
     protected GraphicsContext gc;
     protected GameEngine ge;
-    protected Canvas canvas = new Canvas(700, 600);
+    protected Canvas canvas = new Canvas(500, 500);
     protected Group root = new Group();
     protected HashMap<String, Image> map;
    
@@ -44,9 +45,12 @@ public class PacmanApp extends Application implements API {
         myThread thread = new myThread();
         thread.start();
         
+       // canvas.setStyle("-fx-border-color: white;");
+       // canvas.setStyle("-fx-background-color: black;");
         root.getChildren().add(canvas);
 
-        Scene scene = new Scene(root, 700, 600);
+        Scene scene = new Scene(root, 700, 600, Color.BLACK);
+ 
         
         scene.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.UP){
@@ -66,7 +70,8 @@ public class PacmanApp extends Application implements API {
             }
         });
         
-
+        // Set color of background
+        
         primaryStage.setTitle("Pacman");
         primaryStage.setScene(scene);
         primaryStage.show();

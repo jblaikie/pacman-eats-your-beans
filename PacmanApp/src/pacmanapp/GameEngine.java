@@ -7,10 +7,11 @@ public class GameEngine {
 
     protected Pacman playerPacman;
     protected ArrayList<Sprite> arrSprites = new ArrayList<Sprite>();
+    protected ArrayList<Sprite> dead = new ArrayList<Sprite>();
 
     public void loadMap() { //pass map path
-        Pacman man1 = new Pacman(200, 100, 1, 0);
-        Pacman man2 = new Pacman(100, 250, 1, 0);
+        Pacman man1 = new Pacman(200, 100, 1, 0, false);
+        Pacman man2 = new Pacman(100, 250, 1, 0, false);
         this.register(man1);
         this.register(man2);
         this.playerPacman = man1;
@@ -38,13 +39,17 @@ public class GameEngine {
                         if (s.getY() <= s2.getY() && s2.getY() <= s.getY() + s.getH()) {
                             //if (s instanceof Pacman && s2 instanceof Pacdot) {
                             if (s instanceof Pacman && s2 instanceof Pacman) {
-                                delete(s2);
+                                //delete(s2);
+                                dead.add(s2);
                             }
                             //else if(s2 instanceof Pacman && s instanceof Pacdot)
                             //  delete(s);
                         }
                     }
                 }
+            }
+            for(Sprite sprite: this.dead){
+                delete(sprite);
             }
             s.update();
             s.draw(this.api);
