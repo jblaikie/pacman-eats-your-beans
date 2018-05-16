@@ -37,7 +37,7 @@ public class PacmanApp extends Application implements API {
     @Override
     public void start(Stage primaryStage) {
         ge = new GameEngine(this);
-        ge.loadMap();
+        ge.loadMap("maps/map0.txt");
         map = new HashMap<String, Image>();
         gc = canvas.getGraphicsContext2D();
              
