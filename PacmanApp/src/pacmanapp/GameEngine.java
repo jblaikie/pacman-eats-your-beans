@@ -13,6 +13,8 @@ public class GameEngine {
 
     protected Pacman playerPacman;
     protected ArrayList<Sprite> arrSprites = new ArrayList<Sprite>();
+    protected ArrayList<Sprite> dead = new ArrayList<Sprite>();
+
 
     public void loadMap(String path) { try {
         //pass map path
@@ -41,6 +43,7 @@ public class GameEngine {
         }
         
         
+
     }
 
     public void register(Sprite s) {
@@ -65,13 +68,17 @@ public class GameEngine {
                         if (s.getY() <= s2.getY() && s2.getY() <= s.getY() + s.getH()) {
                             //if (s instanceof Pacman && s2 instanceof Pacdot) {
                             if (s instanceof Pacman && s2 instanceof Pacman) {
-                                delete(s2);
+                                //delete(s2);
+                                dead.add(s2);
                             }
                             //else if(s2 instanceof Pacman && s instanceof Pacdot)
                             //  delete(s);
                         }
                     }
                 }
+            }
+            for(Sprite sprite: this.dead){
+                delete(sprite);
             }
             s.update();
             s.draw(this.api);
