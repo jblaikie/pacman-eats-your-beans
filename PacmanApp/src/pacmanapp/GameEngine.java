@@ -10,8 +10,8 @@ public class GameEngine {
     protected ArrayList<Sprite> dead = new ArrayList<Sprite>();
 
     public void loadMap() { //pass map path
-        Pacman man1 = new Pacman(200, 100, 1, 0, false);
-        Pacman man2 = new Pacman(100, 250, 1, 0, false);
+        Pacman man1 = new Pacman(200, 100, 1, 0);
+        Pacman man2 = new Pacman(100, 250, 1, 0);
         this.register(man1);
         this.register(man2);
         this.playerPacman = man1;
@@ -86,9 +86,4 @@ public class GameEngine {
         this.arrSprites.remove(s);
     }
     
-    
-    
-
-
-
 }

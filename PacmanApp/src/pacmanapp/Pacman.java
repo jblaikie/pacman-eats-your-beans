@@ -2,7 +2,6 @@ package pacmanapp;
 public class Pacman implements Sprite
 {
     protected int x, y, sx, sy;
-    protected boolean dead;
     protected String[] arrPics ={
         "pacmanImgs/pacman1.png", "pacmanImgs/pacman2.png",
         "pacmanImgs/pacman3.png", "pacmanImgs/pacman4.png",
@@ -12,17 +11,16 @@ public class Pacman implements Sprite
     protected int picIndex = 0;
     private int counter = 0;
     
-    public Pacman(int x, int y, int sx, int sy, boolean dead){
+    public Pacman(int x, int y, int sx, int sy){
         this.x = x;
         this.y = y;
         this.sx = sx;
         this.sy = sy;
-        this.dead = dead;
     }
     public void draw(API api)
     {
         String pic = this.arrPics[this.picIndex];
-        api.drawImg(pic, x, y, 50, 50);
+        api.drawImg(pic, x, y, 30, 30);
     }
     
     @Override
@@ -54,12 +52,12 @@ public class Pacman implements Sprite
 
     @Override
     public int getW() {
-        return 50;
+        return 30;
     }
 
     @Override
     public int getH() {
-        return 50;
+        return 30;
     }
     
 }

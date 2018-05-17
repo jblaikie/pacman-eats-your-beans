@@ -13,13 +13,17 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 /**
@@ -30,7 +34,7 @@ public class PacmanApp extends Application implements API {
 
     protected GraphicsContext gc;
     protected GameEngine ge;
-    protected Canvas canvas = new Canvas(500, 500);
+    protected Canvas canvas = new Canvas(700, 600);
     protected Group root = new Group();
     protected HashMap<String, Image> map;
    
@@ -45,11 +49,21 @@ public class PacmanApp extends Application implements API {
         myThread thread = new myThread();
         thread.start();
         
-       // canvas.setStyle("-fx-border-color: white;");
-       // canvas.setStyle("-fx-background-color: black;");
-        root.getChildren().add(canvas);
+       root.getChildren().add(canvas);
+       //root.getChildren().add(gc.getCanvas());
+       
+       HBox score = new HBox();
+       score.setAlignment(Pos.TOP_CENTER);
+       
+       Label scoreLabel = new Label("Score:");
+       scoreLabel.setTextFill(Color.WHITE);
+       scoreLabel.setFont(Font.font("Arial", 30));
+       scoreLabel.setAlignment(Pos.TOP_LEFT);
+       
+       score.getChildren().add(scoreLabel);
+       root.getChildren().add(score);
 
-        Scene scene = new Scene(root, 700, 600, Color.BLACK);
+        Scene scene = new Scene(root, 500, 750, Color.BLACK);
  
         
         scene.setOnKeyPressed((KeyEvent e) -> {
