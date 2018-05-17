@@ -15,14 +15,14 @@ public class GameEngine {
     protected ArrayList<Sprite> arrSprites = new ArrayList<Sprite>();
     protected ArrayList<Sprite> dead = new ArrayList<Sprite>();
 
-    public void loadMap(String path) { try {
+    public void loadMap(String path) {
         //pass map path
-        //Pacman man1 = new Pacman(200, 100, 1, 0);
-        //Pacman man2 = new Pacman(100, 250, 1, 0);
-        // this.register(man1);
-        //this.register(man2);
-        //this.playerPacman = man1;
-        Path p = Paths.get(path);
+        Pacman man1 = new Pacman(200, 100, 1, 0);
+        Pacman man2 = new Pacman(100, 250, 1, 0);
+        this.register(man1);
+        this.register(man2);
+        this.playerPacman = man1;
+     /*   Path p = Paths.get(path);
         Scanner scanner = new Scanner(p);
         while(scanner.hasNextLine())
         {
@@ -39,7 +39,7 @@ public class GameEngine {
         }
         } catch (IOException ex) {
             Logger.getLogger(GameEngine.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } */
         
     }
 
