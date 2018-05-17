@@ -1,7 +1,13 @@
 package pacmanapp;
 
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import javafx.event.EventHandler;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class GameEngine {
 
@@ -9,12 +15,32 @@ public class GameEngine {
     protected ArrayList<Sprite> arrSprites = new ArrayList<Sprite>();
     protected ArrayList<Sprite> dead = new ArrayList<Sprite>();
 
-    public void loadMap() { //pass map path
-        Pacman man1 = new Pacman(200, 100, 1, 0);
-        Pacman man2 = new Pacman(100, 250, 1, 0);
-        this.register(man1);
-        this.register(man2);
-        this.playerPacman = man1;
+    public void loadMap(String path) { try {
+        //pass map path
+        //Pacman man1 = new Pacman(200, 100, 1, 0);
+        //Pacman man2 = new Pacman(100, 250, 1, 0);
+        // this.register(man1);
+        //this.register(man2);
+        //this.playerPacman = man1;
+        Path p = Paths.get(path);
+        Scanner scanner = new Scanner(p);
+        while(scanner.hasNextLine())
+        {
+            String line = scanner.nextLine();
+            Scanner s2 = new Scanner(line);
+            while(s2.hasNext())
+            {
+                String next = s2.next();
+                switch(next) {
+                    case "x": 
+                        
+                }
+            }
+        }
+        } catch (IOException ex) {
+            Logger.getLogger(GameEngine.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     public void register(Sprite s) {
