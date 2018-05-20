@@ -78,23 +78,25 @@ public class PacmanApp extends Application implements API {
 
         Group g1 = new Group();
         Group g2 = new Group();
-        Scene sc1menu = new Scene(g1, 500, 500, Color.CORNFLOWERBLUE);
+        Scene sc1menu = new Scene(g1, 500, 500, Color.SLATEGREY);
         //Scene sc2game = new Scene(g2, 500, 500);
         
         Font font = Font.font(70);
         Font font2 = Font.font(STYLESHEET_MODENA,50);
+        Font fontb2 = Font.font(71);
         
         //Start Game on g1
         Label t1 = new Label("GAME MENU");
         t1.setFont(font2);
+        t1.setTextFill(Color.WHITE);
         Button b1 = new Button("Start");
         b1.setFont(font);
-        //Other menu buttons can be added to g1 here...
         
+        //Other menu buttons can be added to g1 here...
         //Load Game on g2
         Label t2 = new Label(" ");
-        Button b2 = new Button("N/A");
-        b2.setFont(font);
+        Button b2 = new Button("Load");
+        b2.setFont(fontb2);
         
         VBox vbox = new VBox(50, b1, b2);
         vbox.setTranslateX(400);
@@ -104,15 +106,16 @@ public class PacmanApp extends Application implements API {
         t1.setTranslateX(100);
         t2.setTranslateY(65);
         b1.setTranslateY(120);
-        b1.setTranslateX(125);
+        b1.setTranslateX(122);
         b2.setTranslateY(300);
-        b2.setTranslateX(125);
+        b2.setTranslateX(122);
         g1.getChildren().addAll(vbox, t1, b1, t2, b2);
         //g2.getChildren().addAll(t2, b2);
 
+        //b2 set on action to loadmap, and then set for that button click
+        //go to the scene which represents the new loadmap, 
+        //so add the scene switch after the loadmap part and then show that
         
-        
-
         primaryStage.setScene(sc1menu);
         primaryStage.show();
     
@@ -158,18 +161,18 @@ public class PacmanApp extends Application implements API {
                 ge.handleKey(GameEngine.KEY.LEFT);
             }
         });
-        
-        // Set color of background
-        
+                
         //scene event switch to Pacman game
         b1.setOnMouseClicked(e -> { primaryStage.setScene(sc2game); });
         //option to return to menu if implemented
+        //implement for quit or for loadmap file
+                                                //setScene for loadMap
         b2.setOnMouseClicked(e -> { primaryStage.setScene(sc1menu); });
 
-        primaryStage.setScene(sc1menu);
+        //Set color of background
+        //primaryStage.setScene(sc1menu);
         primaryStage.setTitle("Pacman");
-        
-        primaryStage.show();
+        //primaryStage.show();
     }
 
     /**
