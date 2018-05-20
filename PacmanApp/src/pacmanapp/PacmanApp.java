@@ -13,18 +13,26 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+
 
 /**
  *
@@ -39,8 +47,71 @@ public class PacmanApp extends Application implements API {
     protected HashMap<String, Image> map;
    
 
+   //NOTES will delete later    
+        /*public void initMainMenu(Stage stage){
+        Rectangle bg = new Rectangle(900, 600);
+        
+        Font font = Font.font(72);
+        
+        Button btnLoad = new Button("LOAD MAP");
+        btnLoad.setFont(font);
+        btnLoad.setOnAction((event) -> {
+            start(stage);
+        });
+        
+        Button btnExit = new Button("EXIT");
+        btnExit.setFont(font);
+        btnExit.setOnAction((event) ->  {
+        //    exit(stage);
+        });
+        
+        VBox vbox = new VBox(50, btnLoad, btnExit);
+        vbox.setTranslateX(400);
+        vbox.setTranslateY(200);
+        
+        //Stage.getChildren().addAll(bg, vbox);
+        
+    }*/
+    
     @Override
     public void start(Stage primaryStage) {
+
+        Group g1 = new Group();
+        Group g2 = new Group();
+        Scene sc1menu = new Scene(g1, 500, 500, Color.BISQUE);
+        //Scene sc2game = new Scene(g2, 500, 500);
+        
+        Font font = Font.font(70);
+
+        //Start Game on g1
+        Label t1 = new Label("MENU");
+        Button b1 = new Button("Start");
+        b1.setFont(font);
+        //Other menu buttons can be added to g1 here...
+        
+        //Load Game on g2
+        Label t2 = new Label("Return to Menu");
+        Button b2 = new Button("Return/Exit");
+        b2.setFont(font);
+        
+        VBox vbox = new VBox(50, b1, b2);
+        vbox.setTranslateX(400);
+        vbox.setTranslateY(200);
+          
+        t1.setTranslateY(15);
+        t2.setTranslateY(15);
+        b1.setTranslateY(50);
+        b2.setTranslateY(50);
+        g1.getChildren().addAll(vbox, t1, b1 ,b2);
+        g2.getChildren().addAll(t2, b2);
+
+        
+        
+
+        primaryStage.setScene(sc1menu);
+        primaryStage.show();
+    
+    //}    
         ge = new GameEngine(this);
         ge.loadMap("maps/map0.txt");
         map = new HashMap<String, Image>();
@@ -63,10 +134,9 @@ public class PacmanApp extends Application implements API {
        score.getChildren().add(scoreLabel);
        root.getChildren().add(score);
 
-        Scene scene = new Scene(root, 500, 750, Color.BLACK);
+        Scene sc2game = new Scene(root, 500, 750, Color.BLACK);
  
-        
-        scene.setOnKeyPressed((KeyEvent e) -> {
+        sc2game.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.UP){
                 ge.handleKey(GameEngine.KEY.UP);
             }
@@ -86,8 +156,14 @@ public class PacmanApp extends Application implements API {
         
         // Set color of background
         
+        //scene event switch to Pacman game
+        b1.setOnMouseClicked(e -> { primaryStage.setScene(sc2game); });
+        //option to return to menu if implemented
+        b2.setOnMouseClicked(e -> { primaryStage.setScene(sc1menu); });
+
+        primaryStage.setScene(sc1menu);
         primaryStage.setTitle("Pacman");
-        primaryStage.setScene(scene);
+        
         primaryStage.show();
     }
 
@@ -97,7 +173,7 @@ public class PacmanApp extends Application implements API {
     public static void main(String[] args) {
         launch(args);
     }
-
+    
     @Override
     public void drawImg(String path, int x, int y, int w, int h) {
         FileInputStream fis = null;
