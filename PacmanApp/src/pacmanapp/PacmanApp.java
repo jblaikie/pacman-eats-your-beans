@@ -78,32 +78,37 @@ public class PacmanApp extends Application implements API {
 
         Group g1 = new Group();
         Group g2 = new Group();
-        Scene sc1menu = new Scene(g1, 500, 500, Color.BISQUE);
+        Scene sc1menu = new Scene(g1, 500, 500, Color.CORNFLOWERBLUE);
         //Scene sc2game = new Scene(g2, 500, 500);
         
         Font font = Font.font(70);
-
+        Font font2 = Font.font(STYLESHEET_MODENA,50);
+        
         //Start Game on g1
-        Label t1 = new Label("MENU");
+        Label t1 = new Label("GAME MENU");
+        t1.setFont(font2);
         Button b1 = new Button("Start");
         b1.setFont(font);
         //Other menu buttons can be added to g1 here...
         
         //Load Game on g2
-        Label t2 = new Label("Return to Menu");
-        Button b2 = new Button("Return/Exit");
+        Label t2 = new Label(" ");
+        Button b2 = new Button("N/A");
         b2.setFont(font);
         
         VBox vbox = new VBox(50, b1, b2);
         vbox.setTranslateX(400);
         vbox.setTranslateY(200);
           
-        t1.setTranslateY(15);
-        t2.setTranslateY(15);
-        b1.setTranslateY(50);
-        b2.setTranslateY(50);
-        g1.getChildren().addAll(vbox, t1, b1 ,b2);
-        g2.getChildren().addAll(t2, b2);
+        t1.setTranslateY(20);
+        t1.setTranslateX(100);
+        t2.setTranslateY(65);
+        b1.setTranslateY(120);
+        b1.setTranslateX(125);
+        b2.setTranslateY(300);
+        b2.setTranslateX(125);
+        g1.getChildren().addAll(vbox, t1, b1, t2, b2);
+        //g2.getChildren().addAll(t2, b2);
 
         
         
