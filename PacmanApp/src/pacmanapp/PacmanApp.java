@@ -142,7 +142,7 @@ public class PacmanApp extends Application implements API {
        score.getChildren().add(scoreLabel);
        root.getChildren().add(score);
 
-        Scene sc2game = new Scene(root, 500, 750, Color.BLACK);
+        Scene sc2game = new Scene(root, 640,640, Color.BLACK);
  
         sc2game.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.UP){

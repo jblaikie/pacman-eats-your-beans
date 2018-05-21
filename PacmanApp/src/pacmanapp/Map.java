@@ -33,15 +33,15 @@ public class Map {
                 char c = txtmap[y][x];
                 switch(c){
                     case 'x': 
-                        temp[y][x]=new Wall(x,y);
+                        temp[y][x]=new Wall(x*50,y*50);
                         ge.register(temp[y][x]);
                         break;
                     case '.':
-                        temp[y][x]=new Pacdot(x,y);
+                        temp[y][x]=new Pacdot(x*50,y*50);
                         ge.register(temp[y][x]);
                         break;
                     case 'o':
-                        temp[y][x]=new Pacman(x,y,0,1);
+                        temp[y][x]=new Pacman(x*50,y*50,0,1);
                         ge.register(temp[y][x]);
                         ge.playerPacman=(Pacman)temp[y][x];
                         break;
