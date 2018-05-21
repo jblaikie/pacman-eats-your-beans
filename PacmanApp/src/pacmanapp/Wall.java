@@ -10,35 +10,39 @@ package pacmanapp;
  * @author csc190
  */
 public class Wall implements Sprite {
+    int x; int y;
 
+    public Wall(int x, int y)
+    {
+        this.x=x; this.y=y;
+    }
     @Override
     public void draw(API api) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         api.drawImg("objectImgs/fullblock.png",x,y,30,30);
     }
 
     @Override
     public void update() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
     public int getX() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    return x;    }
 
     @Override
     public int getY() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return y;
     }
 
     @Override
     public int getW() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return 30;
     }
 
     @Override
     public int getH() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 30;
     }
     
 }

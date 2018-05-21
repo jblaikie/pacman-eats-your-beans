@@ -1,27 +1,34 @@
 package pacmanapp;
 public class Pacdot implements Sprite
 {
-    public void draw(API api){}
+    int x; int y;
+    public Pacdot(int x, int y)
+    {
+        this.x=x; this.y=y;
+    }
+    public void draw(API api){
+        api.drawImg("objectImgs/pacdot.png",x,y,30,30);
+    }
     public void update(){}
 
     @Override
     public int getX() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return x;
     }
 
     @Override
     public int getY() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return y;
     }
 
     @Override
     public int getW() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 30;
     }
 
     @Override
     public int getH() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return 30;
     }
     
 }

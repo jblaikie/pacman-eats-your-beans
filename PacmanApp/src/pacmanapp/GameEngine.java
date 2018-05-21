@@ -14,32 +14,48 @@ public class GameEngine {
     protected Pacman playerPacman;
     protected ArrayList<Sprite> arrSprites = new ArrayList<Sprite>();
     protected ArrayList<Sprite> dead = new ArrayList<Sprite>();
+    protected Map map;
 
+    protected API api;
+
+    public GameEngine(API api) {
+        this.api = api;
+    }
     public void loadMap(String path) {
-        //pass map path
-        Pacman man1 = new Pacman(200, 100, 1, 0);
-        Pacman man2 = new Pacman(100, 250, 1, 0);
-        this.register(man1);
-        this.register(man2);
-        this.playerPacman = man1;
-     /*   Path p = Paths.get(path);
-        Scanner scanner = new Scanner(p);
-        while(scanner.hasNextLine())
-        {
-            String line = scanner.nextLine();
-            Scanner s2 = new Scanner(line);
-            while(s2.hasNext())
+        try {
+            //pass map path
+            //Pacman man1 = new Pacman(200, 100, 1, 0);
+            //Pacman man2 = new Pacman(100, 250, 1, 0);
+            //this.register(man1);
+            //this.register(man2);
+            //this.playerPacman = man1;
+            Path p = Paths.get(path);
+            Scanner scanner = new Scanner(p);
+            char[][] map=new char[8][8];
+            int x=0,y=0;
+            while(scanner.hasNextLine()&&y<map.length)
             {
-                String next = s2.next();
-                switch(next) {
-                    case "x": 
-                        
+                String line = scanner.nextLine();
+               // Scanner s2 = new Scanner(line);
+                while(x<line.length())
+                {
+                    //String next = s2.next();
+                    map[y][x]=line.charAt(x);
+                    //switch(next) { //contruct map obj
+                    //  case "x":
+                    
+                    //}
+                    x++;
                 }
+                y++; x=0;
             }
-        }
+            this.map=new Map(map, this);
+            
+            
         } catch (IOException ex) {
             Logger.getLogger(GameEngine.class.getName()).log(Level.SEVERE, null, ex);
-        } */
+        }
+      
         
     }
 
@@ -48,11 +64,7 @@ public class GameEngine {
 
     }
 
-    protected API api;
-
-    public GameEngine(API api) {
-        this.api = api;
-    }
+ 
 
     public void oneRound() {
         Timer timer = new Timer();
