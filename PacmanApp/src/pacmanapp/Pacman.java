@@ -24,7 +24,13 @@ public class Pacman implements Sprite
         "pacmanImgs/pacman3.png", "pacmanImgs/pacman4.png",
         "pacmanImgs/pacman5.png"
     };
-            
+    
+    protected String[] arrPics5 = { //dead
+        "pacmanImgs/pacmanD1.png", "pacmanImgs/pacmanD2.png",
+        "pacmanImgs/pacmanD3.png", "pacmanImgs/pacmanD4.png",
+        "pacmanImgs/pacmanD5.png", "pacmanImgs/pacmanD6.png",
+        "pacmanImgs/pacmanD7.png"
+    };
     
     
     protected int picIndex = 0;
@@ -62,8 +68,14 @@ public class Pacman implements Sprite
             api.drawImg(pic4, x, y, 30, 30);
         }
         
+        /*if(dead) //dead
+        { 
+            String pic5 = this.arrPics5[this.picIndex];
+            api.drawImg(pic5, x, y, 30, 30);
+        } 
+        */             
     }
-    
+   
     @Override
     public void update()
     {
