@@ -1,9 +1,9 @@
 xxxxxxxx
-x. p   x
-x  o   x
-x  b  .x
-x  i .xx
-x.xx c x
-x.x .. x
+x.  p  x
+x      x
+xo    .x
+xb   .xx
+xixx c x
+xxx .. x
 xxxxxxxx
 
