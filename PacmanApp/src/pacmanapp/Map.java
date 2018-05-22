@@ -58,6 +58,10 @@ public class Map {
                         temp[y][x]=new Inky(x*50,y*50,0,1);
                         ge.register(temp[y][x]);
                         break;
+                    case 'c':
+                        temp[y][x]=new Clyde(x*50,y*50,0,1);
+                        ge.register(temp[y][x]);
+                        break;
                     default:
                         temp[y][x]=new EmptyPath();
                         break;

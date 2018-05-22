@@ -70,8 +70,8 @@ public class Inky extends Ghost implements Sprite {
        else if(findDestY() == -1)
             this.sy = findDestY() - 2;
        
-       System.out.println(this.sx);
-       System.out.println(this.sy);
+       //System.out.println(this.sx);
+       //System.out.println(this.sy);
     }
        
     @Override

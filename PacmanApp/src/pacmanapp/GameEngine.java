@@ -79,7 +79,6 @@ public class GameEngine {
                             if (s instanceof Pacdot && s2 instanceof Pacman) {
                                 dead.add(s);
                                 score = score + 10;
-                                System.out.println(score);
                             }
                             else if(s instanceof Wall && s2 instanceof Pacman){
                                 ((Pacman)s2).setDirection(0,0);

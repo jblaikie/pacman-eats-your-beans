@@ -3,7 +3,7 @@ x. p   x
 x  o   x
 x  b  .x
 x  i .xx
-x.xx   x
+x.xx c x
 x.x .. x
 xxxxxxxx
 
