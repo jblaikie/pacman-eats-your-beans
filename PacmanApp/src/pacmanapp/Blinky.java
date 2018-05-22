@@ -52,7 +52,7 @@ public class Blinky extends Ghost implements Sprite
         this.x = this.sx + x;
         this.y = this.sy + y;
         
-        if(counter % 25 == 0){
+        if(counter % 50 == 0){
             this.picIndex = (picIndex + 1) % this.arrPics.length;
         }
     }
