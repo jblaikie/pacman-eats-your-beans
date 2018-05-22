@@ -25,7 +25,7 @@ public class Pinky extends Ghost implements Sprite {
     }
     
     public int findDest(int x, int y){
-        switch(playerPacman.getDirectionX() && playerPacman.getDirectionY()){
+      /*  switch(playerPacman.getDirectionX() && playerPacman.getDirectionY()){
             case UP:
                 //Pinky.setX(playerPacman.getX());
                 x = playerPacman.getX();
@@ -44,9 +44,9 @@ public class Pinky extends Ghost implements Sprite {
                 y = playerPacman.getY();
                 return (x, y);
             default:
-                return 0;
-        }
-        //return 0;
+                return 0; 
+        } */
+        return 0;
     }
 
     @Override
