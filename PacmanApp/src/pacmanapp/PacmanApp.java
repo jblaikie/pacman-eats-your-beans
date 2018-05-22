@@ -83,7 +83,7 @@ public class PacmanApp extends Application implements API {
         Group g1 = new Group();
         Group g2 = new Group();
         Scene sc1menu = new Scene(g1, 500, 500, Color.SLATEGREY);
-        //Scene sc2game = new Scene(g2, 500, 500);
+
         
         Font font = Font.font(70);
         Font font2 = Font.font(STYLESHEET_MODENA,50);
@@ -125,7 +125,9 @@ public class PacmanApp extends Application implements API {
     
     //}    
         ge = new GameEngine(this);
-        ge.loadMap("maps/map0.txt");
+        b1.setOnMousePressed((event) -> {
+            ge.loadMap("maps/map0.txt");
+        });
         map = new HashMap<String, Image>();
         gc = canvas.getGraphicsContext2D();
              
@@ -144,6 +146,13 @@ public class PacmanApp extends Application implements API {
        root.getChildren().add(scoreLabel);
 
         Scene sc2game = new Scene(root, 640,640, Color.BLACK);
+        Scene sc3load = new Scene(g2, 640, 640, Color.LIGHTSTEELBLUE);
+                
+        b2.setOnMousePressed((event) -> {
+            ge.loadMap("maps/map50.txt"); //test map for load
+            g2.getChildren().add(canvas);
+            g2.getChildren().add(scoreLabel);
+        });
  
         sc2game.setOnKeyPressed((KeyEvent e) -> {
             if (e.getCode() == KeyCode.UP){
@@ -162,14 +171,32 @@ public class PacmanApp extends Application implements API {
                 ge.handleKey(GameEngine.KEY.LEFT);
             }
         });
-                
+        
+        sc3load.setOnKeyPressed((KeyEvent e) -> {
+            if (e.getCode() == KeyCode.UP){
+                ge.handleKey(GameEngine.KEY.UP);
+            }
+            
+            if (e.getCode() == KeyCode.DOWN){
+                ge.handleKey(GameEngine.KEY.DOWN);
+            }
+            
+            if (e.getCode() == KeyCode.RIGHT){
+                ge.handleKey(GameEngine.KEY.RIGHT);
+            }
+            
+            if (e.getCode() == KeyCode.LEFT){
+                ge.handleKey(GameEngine.KEY.LEFT);
+            }
+        });
+        
         //scene event switch to Pacman game
         b1.setOnMouseClicked(e -> { primaryStage.setScene(sc2game); });
         //option to return to menu if implemented
         //implement for quit or for loadmap file
-                                                //setScene for loadMap
-        b2.setOnMouseClicked(e -> { primaryStage.setScene(sc1menu); });
-
+                                            //setScene for loadMap
+        b2.setOnMouseClicked(e -> { primaryStage.setScene(sc3load); });
+        
         //Set color of background
         //primaryStage.setScene(sc1menu);
         primaryStage.setTitle("Pacman");

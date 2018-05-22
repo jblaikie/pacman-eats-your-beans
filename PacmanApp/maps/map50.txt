@@ -1,0 +1,8 @@
+xxxxxxxx
+x. p  .x
+x. o  .x
+x. b  .x
+x. i ..x
+x.    .x
+x......x
+xxxxxxxx
