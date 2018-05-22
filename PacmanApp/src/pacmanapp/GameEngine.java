@@ -109,10 +109,10 @@ public class GameEngine {
     public void handleKey(KEY key) {
         switch (key) {
             case UP:
-                this.playerPacman.setDirection(0, -1); //why is it 0, -1 and not 0, 1??
+                this.playerPacman.setDirection(0, -1); 
                 break;
             case DOWN:
-                this.playerPacman.setDirection(0, 1); //why not 0, -1??
+                this.playerPacman.setDirection(0, 1); 
                 break;
             case LEFT:
                 this.playerPacman.setDirection(-1, 0);

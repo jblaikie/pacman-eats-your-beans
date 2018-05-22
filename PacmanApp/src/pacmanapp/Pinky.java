@@ -12,9 +12,10 @@ package pacmanapp;
 public class Pinky extends Ghost implements Sprite {
     
     protected int x, y, sx, sy;
-    protected String[] arrPics ={
+    protected String[] arrPics = {
         "ghostImgs/pinky1.png", "ghostImgs/pinky2.png"
     };
+    protected Pacman playerPacman;
     
     protected int picIndex = 0;
     private int counter = 0;
@@ -24,8 +25,28 @@ public class Pinky extends Ghost implements Sprite {
     }
     
     public int findDest(int x, int y){
-        
-        return 0;
+        switch(playerPacman.getDirectionX() && playerPacman.getDirectionY()){
+            case UP:
+                //Pinky.setX(playerPacman.getX());
+                x = playerPacman.getX();
+                y = playerPacman.getY()-4;
+                return (x, y);
+            case DOWN:
+                x = playerPacman.getX();
+                y = playerPacman.getY()+4;
+                return (x, y);
+            case LEFT:
+                x = playerPacman.getX()-4;
+                y = playerPacman.getY();
+                return (x, y);
+            case RIGHT:
+                x = playerPacman.getX()+4;
+                y = playerPacman.getY();
+                return (x, y);
+            default:
+                return 0;
+        }
+        //return 0;
     }
 
     @Override
