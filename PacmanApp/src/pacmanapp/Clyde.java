@@ -14,7 +14,7 @@ public class Clyde extends Ghost implements Sprite {
     protected GameEngine ge;
     protected int x, y, sx, sy;
     protected String[] arrPics ={
-        "ghostImgs/clyde1.png", "ghostImgs/clyde2.png"
+        "ghostImgs/cylde1.png", "ghostImgs/clyde2.png" //clyde1.png does not exist due to typo in file name
     };
     
     protected int picIndex = 0;
