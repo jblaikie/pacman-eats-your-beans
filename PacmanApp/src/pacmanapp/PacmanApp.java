@@ -200,7 +200,10 @@ public class PacmanApp extends Application implements API {
                 }
             }
         }
+        //this.gc.save();
+        //this.gc.rotate(90);
         this.gc.drawImage(im, x, y, w, h);
+        //this.gc.restore();
 
     }
 
