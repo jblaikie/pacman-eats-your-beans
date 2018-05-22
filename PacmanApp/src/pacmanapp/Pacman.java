@@ -40,6 +40,15 @@ public class Pacman implements Sprite
         this.sy = sy;
     }
 
+    public int getDirectionX(){
+        return this.sx;
+    }
+    
+    public int getDirectionY(){
+        return this.sy;
+    }
+    
+    
     @Override
     public int getX() {
         return this.x;
