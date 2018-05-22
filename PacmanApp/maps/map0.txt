@@ -1,7 +1,7 @@
 xxxxxxx
-x.   ox
-x xxx x
-x x x x
+x.    x
+x  o  x
+x  b   x
 x   .xx
 x xx  x
 x x  .x

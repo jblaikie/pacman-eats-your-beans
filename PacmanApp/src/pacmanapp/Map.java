@@ -45,6 +45,11 @@ public class Map {
                         ge.register(temp[y][x]);
                         ge.playerPacman=(Pacman)temp[y][x];
                         break;
+                    case 'b':
+                        temp[y][x]=new Blinky(x*50,y*50,0,1);
+                        ge.register(temp[y][x]);
+                        //ge.playerPacman=(Pacman)temp[y][x];
+                        break;
                     default:
                         temp[y][x]=new EmptyPath();
                         break;
@@ -71,5 +76,9 @@ public class Map {
             }
             x=0; y++;
         }
+    }
+    
+    public int getDirTo(int sx, int sy, int dx, int dy){
+        return 0;
     }
 }

@@ -11,7 +11,7 @@ package pacmanapp;
  */
 public class Blinky extends Ghost implements Sprite
 {
-    
+    protected GameEngine ge;
     protected int x, y, sx, sy;
     protected String[] arrPics ={
         "ghostImgs/blinky1.png", "ghostImgs/blinky2.png"
@@ -24,9 +24,19 @@ public class Blinky extends Ghost implements Sprite
         super(x, y, sx, sy);
     }
     
-    public int findDest(int x, int y){
-        
-        return 0;
+    public int findDestX(){
+        return this.ge.playerPacman.getX();
+    }
+    
+    public int findDestY(){
+        return this.ge.playerPacman.getY();
+    }
+    
+    public void setDirection(){
+        this.sx = findDestX();
+        this.sy = findDestY();
+       System.out.println(this.sx);
+       System.out.println(this.sy);
     }
 
     @Override
@@ -38,6 +48,7 @@ public class Blinky extends Ghost implements Sprite
     @Override
     public void update() {
         counter++;
+        //setDirection();
         this.x = this.sx + x;
         this.y = this.sy + y;
         

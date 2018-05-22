@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
@@ -45,6 +46,9 @@ public class PacmanApp extends Application implements API {
     protected Canvas canvas = new Canvas(700, 600);
     protected Group root = new Group();
     protected HashMap<String, Image> map;
+    protected int score = 0;
+    
+    Label scoreLabel;
    
 
    //NOTES will delete later    
@@ -132,7 +136,8 @@ public class PacmanApp extends Application implements API {
        //root.getChildren().add(gc.getCanvas());
        
        
-       Label scoreLabel = new Label("Score:          " + ge.getScore());
+       scoreLabel = new Label("Score:          " + score);
+      // scoreLabel.textProperty().bind((char) ge.score);
        scoreLabel.setTextFill(Color.WHITE);
        scoreLabel.setFont(Font.font("Arial", 30));
        scoreLabel.setLayoutY(400);
@@ -207,6 +212,17 @@ public class PacmanApp extends Application implements API {
     @Override
     public void clear() {
         gc.clearRect(0, 0, 1000, 1000);
+    }
+
+    @Override
+    public void updateScore() {
+
+                 Platform.runLater(new Runnable() {
+                 @Override public void run() {
+                     scoreLabel.setText("Score     " + ge.getScore());
+                 }
+             }); 
+
     }
 
     class myThread extends Thread {

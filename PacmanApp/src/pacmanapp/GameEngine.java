@@ -76,25 +76,27 @@ public class GameEngine {
                 if (s != s2) {
                     if (s.getX() <= s2.getX() && s2.getX() <= s.getX() + s.getW()) {
                         if (s.getY() <= s2.getY() && s2.getY() <= s.getY() + s.getH()) {
-                            //if (s instanceof Pacman && s2 instanceof Pacdot) {
-                            if (s instanceof Pacman && s2 instanceof Pacdot) {
-                                //delete(s2);
-                                dead.add(s2);
+                            if (s instanceof Pacdot && s2 instanceof Pacman) {
+                                dead.add(s);
                                 score = score + 10;
+                                System.out.println(score);
                             }
-                          /*  else if(s instanceof Pacman && s2 instanceof Pacdot){
-                                dead.add(s2);
-                            } */
+                            else if(s instanceof Wall && s2 instanceof Pacman){
+                                ((Pacman)s2).setDirection(0,0);
+                                ((Pacman)s2).x = Math.round(((Pacman)s2).x / 50)* 50 + 5;
+                                ((Pacman)s2).y = Math.round(((Pacman)s2).y / 50)* 50 - 5;
+                            }
                         }
                     }
                 }
             }
-            for(Sprite sprite: this.dead){
-                delete(sprite);
-            }
             s.update();
             s.draw(this.api);
         }
+        api.updateScore();
+        for(Sprite sprite: this.dead){
+                delete(sprite);
+            }
         timer.stop();
 
     }
@@ -129,6 +131,10 @@ public class GameEngine {
     
     public int getScore(){
         return this.score;
+    }
+    
+    public void drawScore(int x, int y){
+        
     }
     
 }

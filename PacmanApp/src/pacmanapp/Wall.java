@@ -18,7 +18,7 @@ public class Wall implements Sprite {
     }
     @Override
     public void draw(API api) {
-         api.drawImg("objectImgs/fullblock.png",x,y,30,30);
+         api.drawImg("objectImgs/fullblock.png",x,y,40,40);
     }
 
     @Override
@@ -37,12 +37,12 @@ public class Wall implements Sprite {
 
     @Override
     public int getW() {
-       return 30;
+       return 50;
     }
 
     @Override
     public int getH() {
-        return 30;
+        return 50;
     }
     
 }

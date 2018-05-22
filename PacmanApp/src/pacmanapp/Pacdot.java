@@ -23,12 +23,12 @@ public class Pacdot implements Sprite
 
     @Override
     public int getW() {
-        return 30;
+        return 50;
     }
 
     @Override
     public int getH() {
-        return 30;
+        return 50;
     }
     
 }

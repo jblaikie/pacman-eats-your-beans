@@ -52,12 +52,12 @@ public class Pacman implements Sprite
 
     @Override
     public int getW() {
-        return 30;
+        return 40;
     }
 
     @Override
     public int getH() {
-        return 30;
+        return 40;
     }
     
 }
