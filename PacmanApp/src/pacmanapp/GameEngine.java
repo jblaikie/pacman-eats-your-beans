@@ -84,7 +84,7 @@ public class GameEngine {
                                 ((Pacman)s2).setDirection(0,0);
                                 ((Pacman)s2).x = Math.round(((Pacman)s2).x / 50)* 50 + 5;
                                 ((Pacman)s2).y = Math.round(((Pacman)s2).y / 50)* 50 - 5;
-                            }
+                            } 
                             if (s instanceof Pacman && s2 instanceof Ghost) {
                                 dead.add(s);
                                 System.out.println("Game Over");
