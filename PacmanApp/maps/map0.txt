@@ -1,8 +1,9 @@
-xxxxxxx
-x.    x
-x  o  x
-x  b  x
-x  p.xx
-x xx  x
-x x i.x
-xxxxxxx
+xxxxxxxx
+x. p   x
+x  o   x
+x  b  .x
+x  i .xx
+x.xx   x
+x.x .. x
+xxxxxxxx
+

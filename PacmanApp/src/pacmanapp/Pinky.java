@@ -16,6 +16,7 @@ public class Pinky extends Ghost implements Sprite {
         "ghostImgs/pinky1.png", "ghostImgs/pinky2.png"
     };
     protected Pacman playerPacman;
+    protected GameEngine ge;
     
     protected int picIndex = 0;
     private int counter = 0;
@@ -47,6 +48,26 @@ public class Pinky extends Ghost implements Sprite {
                 return 0; 
         } */
         return 0;
+    }
+    public int findDestX(){
+        return this.playerPacman.getX();
+    }
+    
+    public int findDestY(){
+        return this.playerPacman.getY();
+    }
+    
+    public void setDirection(){
+       if(findDestX() == 1)
+            this.sx = findDestX()+4;
+       else if(findDestX() == -1)
+            this.sx = findDestX() -4;
+       if(findDestY() == 1)
+            this.sy = findDestY()+4;
+       else if(findDestY() == -1)
+            this.sy = findDestY() - 4;
+       System.out.println(this.sx);
+       System.out.println(this.sy);
     }
 
     @Override
