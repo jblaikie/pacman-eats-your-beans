@@ -91,6 +91,7 @@ public class Map {
     }
     
     public int getDirTo(int sx, int sy, int dx, int dy){
+        // A* implemented here
         return 0;
     }
 }

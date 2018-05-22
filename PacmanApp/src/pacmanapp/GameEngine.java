@@ -108,6 +108,7 @@ public class GameEngine {
         UP, DOWN, LEFT, RIGHT
     };
     
+    
 
     public void handleKey(KEY key) {
         switch (key) {
