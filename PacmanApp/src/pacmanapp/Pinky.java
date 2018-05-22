@@ -16,6 +16,7 @@ public class Pinky extends Ghost implements Sprite {
         "ghostImgs/pinky1.png", "ghostImgs/pinky2.png"
     };
     protected Pacman playerPacman;
+    protected GameEngine ge;
     
     protected int picIndex = 0;
     private int counter = 0;
@@ -24,29 +25,25 @@ public class Pinky extends Ghost implements Sprite {
         super(x, y, sx, sy);
     }
     
-    public int findDest(int x, int y){
-        switch(playerPacman.getDirectionX() && playerPacman.getDirectionY()){
-            case UP:
-                //Pinky.setX(playerPacman.getX());
-                x = playerPacman.getX();
-                y = playerPacman.getY()-4;
-                return (x, y);
-            case DOWN:
-                x = playerPacman.getX();
-                y = playerPacman.getY()+4;
-                return (x, y);
-            case LEFT:
-                x = playerPacman.getX()-4;
-                y = playerPacman.getY();
-                return (x, y);
-            case RIGHT:
-                x = playerPacman.getX()+4;
-                y = playerPacman.getY();
-                return (x, y);
-            default:
-                return 0;
-        }
-        //return 0;
+    public int findDestX(){
+        return this.playerPacman.getX();
+    }
+    
+    public int findDestY(){
+        return this.playerPacman.getY();
+    }
+    
+    public void setDirection(){
+       if(findDestX() == 1)
+            this.sx = findDestX()+4;
+       else if(findDestX() == -1)
+            this.sx = findDestX() -4;
+       if(findDestY() == 1)
+            this.sy = findDestY()+4;
+       else if(findDestY() == -1)
+            this.sy = findDestY() - 4;
+       System.out.println(this.sx);
+       System.out.println(this.sy);
     }
 
     @Override

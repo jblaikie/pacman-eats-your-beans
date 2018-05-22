@@ -50,6 +50,14 @@ public class Map {
                         ge.register(temp[y][x]);
                         //ge.playerPacman=(Pacman)temp[y][x];
                         break;
+                    case 'p':
+                        temp[y][x]=new Pinky(x*50,y*50,0,1);
+                        ge.register(temp[y][x]);
+                        break;
+                    case 'i':
+                        temp[y][x]=new Inky(x*50,y*50,0,1);
+                        ge.register(temp[y][x]);  
+                        break;
                     default:
                         temp[y][x]=new EmptyPath();
                         break;
