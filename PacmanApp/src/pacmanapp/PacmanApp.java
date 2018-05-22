@@ -131,16 +131,12 @@ public class PacmanApp extends Application implements API {
        root.getChildren().add(canvas);
        //root.getChildren().add(gc.getCanvas());
        
-       HBox score = new HBox();
-       score.setAlignment(Pos.TOP_CENTER);
        
-       Label scoreLabel = new Label("Score:");
+       Label scoreLabel = new Label("Score:          " + ge.getScore());
        scoreLabel.setTextFill(Color.WHITE);
        scoreLabel.setFont(Font.font("Arial", 30));
-       scoreLabel.setAlignment(Pos.TOP_LEFT);
-       
-       score.getChildren().add(scoreLabel);
-       root.getChildren().add(score);
+       scoreLabel.setLayoutY(400);
+       root.getChildren().add(scoreLabel);
 
         Scene sc2game = new Scene(root, 640,640, Color.BLACK);
  

@@ -15,6 +15,7 @@ public class GameEngine {
     protected ArrayList<Sprite> arrSprites = new ArrayList<Sprite>();
     protected ArrayList<Sprite> dead = new ArrayList<Sprite>();
     protected Map map;
+    protected int score = 0;
 
     protected API api;
 
@@ -76,12 +77,14 @@ public class GameEngine {
                     if (s.getX() <= s2.getX() && s2.getX() <= s.getX() + s.getW()) {
                         if (s.getY() <= s2.getY() && s2.getY() <= s.getY() + s.getH()) {
                             //if (s instanceof Pacman && s2 instanceof Pacdot) {
-                            if (s instanceof Pacman && s2 instanceof Pacman) {
+                            if (s instanceof Pacman && s2 instanceof Pacdot) {
                                 //delete(s2);
                                 dead.add(s2);
+                                score = score + 10;
                             }
-                            //else if(s2 instanceof Pacman && s instanceof Pacdot)
-                            //  delete(s);
+                          /*  else if(s instanceof Pacman && s2 instanceof Pacdot){
+                                dead.add(s2);
+                            } */
                         }
                     }
                 }
@@ -122,6 +125,10 @@ public class GameEngine {
     
     public void delete (Sprite s){
         this.arrSprites.remove(s);
+    }
+    
+    public int getScore(){
+        return this.score;
     }
     
 }
